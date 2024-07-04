@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<body>
+<div class="navbar-fixed-top" th:fragment="header">
+        <div class="container align-content-center header-block">
+            <div class="main-title">
+                <img class="logo" th:src="@{/static/scrappy.png}" alt="logo"/>
+                <h2>Управление пользователями</h2>
+                <p>Версия 0.2</p>
+            </div>
+
+            <div class="logout">
+                <a class="btn btn-dark" th:href="@{/logout}">Выход</a>
+            </div>
+        </div>
+</div>
+</body>
+</html>

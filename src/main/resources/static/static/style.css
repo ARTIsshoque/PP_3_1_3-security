@@ -1,0 +1,95 @@
+.logo {
+    width: 50px;
+    float: left;
+    margin: 1em 2em;
+}
+
+.header-block {
+    background-color: #4F6EC4;
+    color: #FFF;
+}
+
+.header-block h2 {
+    margin: 1em 1em 0 1em;
+}
+
+.main {
+    background-color: #C7D1EE;
+    padding-top: 1.2em;
+}
+
+.center {
+    text-align: center;
+}
+
+.record {
+    padding: 1em 1.2em;
+    border: 1px solid black;
+    margin: 1em 0.8em;
+    display: inline-block;
+    width: 17%;
+}
+
+.main-title {
+    width: 90%;
+    display: inline-block;
+}
+
+.logout {
+    width: 7%;
+    display: inline-block;
+}
+
+.column-name {
+    font-size: 0.7em;
+    color: #222;
+    padding: 0 0.3em;
+}
+
+.column-name-large {
+    font-size: 1.2em;
+    color: #222;
+    padding: 0 0.3em;
+}
+
+.btns button {
+    margin: 1em 1em 0.3em 1em;
+    width: 100px;
+}
+
+.value {
+    font-size: 0.9em;
+}
+
+.value-large {
+    font-size: 1.4em;
+}
+
+.add-user {
+    margin: 2em 0;
+}
+
+body {
+    background-color: #FFF;
+}
+
+fieldset {
+    margin-bottom: 2em;
+    padding: 1.6em;
+}
+
+.main label {
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0.6em 0;
+}
+
+input {
+    width: 250px;
+    margin: 0.6em 0;
+}
+
+.margins {
+    margin: 2em 0;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/static/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/static/style.css}">
+    <title>Список пользователей</title>
+</head>
+
+<body>
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<div class="container align-content-center main">
+    <div class="center">
+        <h2>Имеющиеся пользователи:</h2>
+    </div>
+    <div class="record" th:each="user : ${users}">
+        <div class="info">
+            <span class="column-name">id:</span><br />
+            <span class="value" th:text="${user.getId()}">id</span><br />
+            <span class="column-name">Логин:</span><br />
+            <span class="value" th:text="${user.getUsername()}">username</span><br />
+            <span class="column-name">Имя:</span><br />
+            <span class="value" th:text="${user.getFirstName()}">first name</span><br />
+            <span class="column-name">Фамилия:</span><br />
+            <span class="value" th:text="${user.getLastName()}">last name</span><br />
+            <span class="column-name">Электронная почта:</span><br />
+            <span class="value" th:text="${user.getEmail()}">email</span><br />
+            <span class="column-name">Номер телефона:</span><br />
+            <span class="value" th:text="${user.getPhoneNumber()}">phone number</span> <br />
+            <span class="column-name">Роли:</span><br />
+            <th:block th:each="role : ${user.getRoles()}">
+                <span class="value" th:text="${role.getName()}">role</span>
+            </th:block><br />
+        </div>
+        <div class="btns">
+            <form th:action="@{/admin/edit}" method="GET">
+                <input type="hidden" name="id" th:value="${user.getId()}">
+                <button class="btn btn-dark" type="submit">Изменить</button>
+            </form>
+            <form th:action="@{/admin/delete}" method="POST">
+                <input type="hidden" name="id" th:value="${user.getId()}">
+                <button class="btn btn-dark" type="submit">Удалить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="add-user center">
+        <a th:href="add" class="btn btn-dark">Добавить</a>
+    </div>
+</div>
+
+</body>
+
+
+</html>

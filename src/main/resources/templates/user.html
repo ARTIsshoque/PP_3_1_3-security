@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/static/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/static/style.css}">
+    <title>Список пользователей</title>
+</head>
+
+<body>
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<div class="container align-content-center main">
+    <div class="center">
+        <h2>Информация о пользователе:</h2>
+    </div>
+
+    <div class="info">
+        <span class="column-name-large">id:</span><br />
+        <span class="value-large" th:text="${user.getId()}">id</span><br /><br />
+        <span class="column-name-large">Логин:</span><br />
+        <span class="value-large" th:text="${user.getUsername()}">username</span><br /><br />
+        <span class="column-name-large">Имя:</span><br />
+        <span class="value-large" th:text="${user.getFirstName()}">first name</span><br /><br />
+        <span class="column-name-large">Фамилия:</span><br />
+        <span class="value-large" th:text="${user.getLastName()}">last name</span><br /><br />
+        <span class="column-name-large">Электронная почта:</span><br />
+        <span class="value-large" th:text="${user.getEmail()}">email</span><br /><br />
+        <span class="column-name-large">Номер телефона:</span><br />
+        <span class="value-large" th:text="${user.getPhoneNumber()}">phone number</span> <br /><br />
+        <span class="column-name-large">Роли:</span><br />
+        <th:block th:each="role : ${user.getRoles()}">
+            <span class="value-large" th:text="${role.getName()}">role</span>
+        </th:block><br />
+    </div>
+    <br /><br /><br />
+</div>
+
+</body>
+
+
+</html>
