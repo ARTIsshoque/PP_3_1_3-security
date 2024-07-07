@@ -1,4 +1,4 @@
-package org.example1.security.web;
+package org.example1.security.controllers;
 
 import org.example1.security.service.UserService;
 import org.springframework.stereotype.Controller;

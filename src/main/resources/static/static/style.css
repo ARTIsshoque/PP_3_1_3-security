@@ -86,8 +86,13 @@ fieldset {
 }
 
 input {
-    width: 250px;
+    width: 20%;
     margin: 0.6em 0;
+}
+
+.chk {
+    width: auto;
+    margin: 0.6em 0.3em;
 }
 
 .margins {

@@ -22,15 +22,8 @@ public class MvcConfig implements WebMvcConfigurer {
     @Bean
     public CommandLineRunner dataLoader(UserService userService, RoleService roleService) {
         return args -> {
-            Role adminRole = roleService.findByName("ADMIN");
-            if (adminRole == null) {
-                adminRole = new Role("ADMIN");
-            }
-
-            Role userRole = roleService.findByName("USER");
-            if (userRole == null) {
-                userRole = new Role("USER");
-            }
+            Role adminRole = roleService.findByName("ADMIN").orElse(new Role("ADMIN"));
+            Role userRole = roleService.findByName("USER").orElse(new Role("USER"));
 
             List<User> users = userService.findAllWithRoles();
             boolean adminPresent = false;

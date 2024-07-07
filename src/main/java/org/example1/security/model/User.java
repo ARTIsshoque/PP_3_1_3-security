@@ -1,6 +1,8 @@
 package org.example1.security.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -15,6 +17,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "username is required")
     @Column(unique = true, nullable = false)
     private String username;
 
@@ -24,11 +27,14 @@ public class User implements UserDetails {
     @Column(name = "last_name")
     private String lastName;
 
+    @Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$",
+             message = "not a valid email")
     private String email;
 
     @Column(name = "phone")
     private String phoneNumber;
 
+    @NotBlank(message = "password must be set")
     private String password;
 
     @ManyToMany

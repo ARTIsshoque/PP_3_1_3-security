@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -29,11 +30,11 @@ public class RoleService implements EntityService<Role> {
     }
 
     @Override
-    public Role findById(Long id) {
-        return roleRepo.findById(id).orElse(null);
+    public Optional<Role> findById(Long id) {
+        return roleRepo.findById(id);
     }
 
-    public Role findByName(String name) {
+    public Optional<Role> findByName(String name) {
         return roleRepo.findByName(name);
     }
 

@@ -24,18 +24,23 @@
             <input id="username" th:field="*{username}" autofocus placeholder="user"><br />
             <label for="password">Пароль</label>
             <input id="password" type="password" th:field="*{password}" autofocus placeholder="*******"><br />
+            <span class="small text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</span>
+            <br th:if="${#fields.hasErrors('password')}" />
             <label for="firstname">Имя</label>
             <input id="firstname" th:field="*{firstName}" autofocus placeholder="Bruce"><br />
             <label for="lastname">Фамилия</label>
             <input id="lastname" th:field="*{lastName}" autofocus placeholder="Wayne"><br />
             <label for="email">E-mail</label>
             <input id="email" type="email" th:field="*{email}" placeholder="example@domain.com"><br />
+            <span class="small text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span>
+            <br th:if="${#fields.hasErrors('email')}" />
             <label for="phone-number">Номер телефона</label>
             <input id="phone-number" th:field="*{phoneNumber}" placeholder="(XXX)XXX-XX-XX"><br />
-            <label>Роли:
-                <input type="checkbox" name="roles" th:each="role : ${roles}" th:text="${role.name}"
+            <div>
+                <label>Роли</label>
+                <input class="chk" type="checkbox" name="roles" th:each="role : ${roles}" th:text="${role.name}"
                        th:value="${role.id}" th:field="*{roles}" />
-            </label>
+            </div>
         </fieldset>
         <button class="btn btn-dark margins" type="submit">Сохранить</button>
     </form>

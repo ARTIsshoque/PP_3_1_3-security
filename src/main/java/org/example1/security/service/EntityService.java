@@ -1,12 +1,13 @@
 package org.example1.security.service;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface EntityService <T> {
 
     void add(T entity);
 
-    T findById(Long id);
+    Optional<T> findById(Long id);
 
     List<T> findAll();
 
