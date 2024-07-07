@@ -22,6 +22,8 @@
         <fieldset>
             <label for="username">Логин</label>
             <input id="username" th:field="*{username}" autofocus placeholder="user"><br />
+            <span class="small text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</span>
+            <br th:if="${#fields.hasErrors('username')}" />
             <label for="password">Пароль</label>
             <input id="password" type="password" th:field="*{password}" autofocus placeholder="*******"><br />
             <span class="small text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</span>
